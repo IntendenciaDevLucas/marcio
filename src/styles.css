@@ -9,21 +9,39 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.service-card:hover,.button:hover{transform:none}}
 .photo-about .placeholder-caption{top:24px;bottom:auto}
 
-/* As fotos oficiais têm proporções próprias: retrato 2:3 e casal 3:2.
+/* Hero imersivo: fotografia de fundo e conteúdo em primeiro plano. */
+.hero--background{isolation:isolate;background:#101113}
+.hero-backdrop{position:absolute;inset:0 0 0 22%;z-index:-2;pointer-events:none}
+.hero-backdrop .photo-hero{height:100%;width:100%;aspect-ratio:auto;border-radius:0;box-shadow:none}
+.hero-backdrop .photo-hero>img{height:100%;width:100%;object-fit:cover;object-position:100% center}
+.hero--background::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#101113 0%,#101113f5 22%,#101113c9 39%,#10111335 65%,#10111315 100%),linear-gradient(0deg,#101113 0%,transparent 25%,#10111330 100%)}
+.hero--background .hero-grid{display:block;position:relative;min-height:650px;padding-block:34px 42px}
+.hero--background .hero-copy{max-width:610px;padding-block:38px 24px}
+.hero--background .hero-description{color:#d3d4d5}
+.hero-callout{max-width:385px;margin-top:6px}
+.hero-callout .emergency-badge{position:static;inset:auto;margin:0;padding:13px 16px;background:#1b1c1edb;backdrop-filter:blur(8px);box-shadow:none}
+.hero-callout .badge-icon{padding:9px}
+.hero--background .hero-bottom{position:relative}
+@media(min-width:1600px){.hero--background .hero-grid{min-height:740px}.hero--background .hero-copy{max-width:700px}}
+@media(max-width:1100px){.hero--background .hero-copy{max-width:520px}.hero-backdrop{left:12%}.hero--background .hero-grid{min-height:620px}}
+@media(max-width:800px){.hero--background .hero-copy{max-width:440px}.hero-backdrop{left:0}.hero-backdrop .photo-hero>img{object-position:100% center}.hero--background::after{background:linear-gradient(90deg,#101113ec,#101113b3 48%,#10111335),linear-gradient(0deg,#101113,transparent 65%)}.hero--background .hero-grid{padding-block:16px 30px}}
+@media(max-width:600px){.hero--background .hero-grid{min-height:0;padding-block:12px 26px}.hero--background .hero-copy{padding-block:32px 24px;max-width:none}.hero-backdrop .photo-hero>img{object-position:35% top}.hero--background::after{background:linear-gradient(90deg,#101113d9,#10111385),linear-gradient(0deg,#101113 0%,#10111380 55%,#10111325 100%)}.hero-callout{max-width:none}.hero-callout .emergency-badge{padding:13px}.hero--background .hero-rating{position:relative}}
+
+/* As fotos oficiais têm proporções próprias: hero horizontal e casal 3:2.
    Não usar as alturas dos placeholders nem sobrepor os selos à fotografia. */
 .hero-visual:has(.photo-hero > img){
   height:auto;
   width:100%;
-  max-width:420px;
+  max-width:none;
   margin:28px 0 28px auto;
 }
 .photo-hero:has(> img){
   height:auto;
-  aspect-ratio:2 / 3;
+  aspect-ratio:auto;
   border-radius:8px;
   box-shadow:0 0 55px #ff751f0c;
 }
-.photo-hero > img{object-fit:contain;object-position:center}
+.photo-hero > img{height:auto;object-fit:contain;object-position:center}
 .hero-visual:has(.photo-hero > img) .hero-image-label{display:none}
 .hero-visual:has(.photo-hero > img) .emergency-badge{
   position:relative;
@@ -43,7 +61,7 @@
   .about-photo:has(.photo-about > img){width:100%;max-width:600px;margin-inline:auto}
 }
 @media(max-width:600px){
-  .hero-visual:has(.photo-hero > img){max-width:360px;margin:0 auto 22px}
+  .hero-visual:has(.photo-hero > img){max-width:none;margin:0 auto 22px}
   .hero-visual:has(.photo-hero > img) .emergency-badge{padding:14px}
   .about-grid:has(.photo-about > img){gap:30px}
 }

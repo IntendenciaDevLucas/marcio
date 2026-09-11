@@ -1,0 +1,100 @@
+.brand-marquee {
+  --brand-slot: 180px;
+  --brand-duration: 35s;
+  padding: 14px 0 16px;
+  overflow: hidden;
+  background: linear-gradient(110deg, #18191b, #202123 50%, #18191b);
+  border-block: 1px solid #ffffff12;
+}
+.brand-marquee__heading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  margin-bottom: 6px;
+}
+.brand-marquee__heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 500 9px / 1.4 'Inter', sans-serif;
+  letter-spacing: 2px;
+  color: var(--silver);
+}
+.brand-marquee__heading h2::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--orange);
+}
+.brand-marquee__viewport {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+.brand-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: brand-marquee-travel var(--brand-duration) linear infinite;
+  will-change: transform;
+}
+.brand-marquee__group {
+  display: flex;
+  flex: 0 0 auto;
+  /* Um grupo sempre cobre a faixa, mesmo se marcas forem removidas. */
+  width: max(calc(var(--brand-count) * var(--brand-slot)), min(1400px, 100vw));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.brand-marquee__item {
+  position: relative;
+  display: flex;
+  flex: 1 0 var(--brand-slot);
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  padding-inline: 20px;
+}
+.brand-marquee__item::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #ff751f65;
+}
+.brand-marquee__item img {
+  display: block;
+  width: 104px;
+  height: 44px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: .63;
+  transition: opacity .25s, transform .25s;
+}
+.brand-marquee__fallback { font: 600 19px / 1 'Barlow Condensed', sans-serif; color: var(--silver); }
+/* Preserva as letras brancas sobre o oval escuro do SVG da Ford. */
+.brand-marquee__item img[alt='Ford'] { filter: grayscale(1); }
+.brand-marquee__viewport:focus-within .brand-marquee__track { animation-play-state: paused; }
+@media (hover: hover) {
+  .brand-marquee__viewport:hover .brand-marquee__track { animation-play-state: paused; }
+  .brand-marquee__item:hover img { opacity: 1; transform: scale(1.07); }
+}
+@keyframes brand-marquee-travel { to { transform: translateX(-50%); } }
+@media (max-width: 1100px) { .brand-marquee { --brand-slot: 140px; } }
+@media (max-width: 600px) {
+  .brand-marquee { --brand-slot: 96px; --brand-duration: 30s; padding: 10px 0 12px; }
+  .brand-marquee__heading { margin-bottom: 3px; }
+  .brand-marquee__heading h2 { font-size: 8px; letter-spacing: 1.3px; gap: 8px; }
+  .brand-marquee__item { height: 46px; padding-inline: 12px; }
+  .brand-marquee__item img { width: 72px; height: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee__viewport { overflow-x: auto; scrollbar-width: thin; scrollbar-color: #777 #202123; }
+  .brand-marquee__track { animation: none; transform: none; will-change: auto; }
+  .brand-marquee__group[aria-hidden='true'] { display: none; }
+  .brand-marquee__item img { transition: none; }
+  .brand-marquee__item:hover img { transform: none; }
+}
