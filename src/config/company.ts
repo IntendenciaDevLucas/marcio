@@ -3,7 +3,7 @@ export const company = {
   phone: '+5531986510530', phoneDisplay: '(31) 98651-0530', whatsapp: '5531986510530',
   instagram: '@chaveschaveiromtz',
   address: { street: 'R. Dona Balá, 49', neighborhood: 'Floresta', city: 'Matozinhos', state: 'MG', zipCode: '35720-000' },
-  googleRating: 4.9, googleReviews: 200, experience: 'Quase 10 anos',
+  googleRating: 4.9, googleReviews: 200, experience: 'Quase uma década',
   businessClosingTime: '17:30', emergencyContact: true,
   serviceArea: ['Matozinhos', 'Prudente de Morais', 'Pedro Leopoldo', 'Capim Branco', 'Região'],
   // Inserir o link direto do perfil quando fornecido. Não inventar place_id.
