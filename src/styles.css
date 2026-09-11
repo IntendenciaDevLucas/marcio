@@ -8,3 +8,42 @@
 @media(max-width:600px){body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}.container{width:calc(100% - 40px)}h2{font-size:39px}.header-whatsapp{font-size:9px;padding-inline:10px;gap:7px}.hero-grid{display:flex;flex-direction:column;align-items:stretch;gap:0}.hero-copy{padding:43px 0 28px}.hero h1{font-size:clamp(62px,15.7vw,78px)}.hero .eyebrow{font-size:8px;letter-spacing:1.5px;margin-bottom:20px}.hero-description{font-size:12px;max-width:330px;margin-top:22px}.hero-buttons{flex-direction:row;align-items:stretch;gap:9px;margin-top:24px}.hero-buttons .button{min-width:0;font-size:9px;padding-inline:12px;min-height:48px;gap:7px}.hero-buttons .button>svg:last-child{display:none}.hero-rating{margin-top:25px;gap:12px}.experience-small{display:flex;font-size:9px}.rating-divider{display:block;margin-inline:0}.hero-rating a{font-size:8px}.hero-visual{height:350px;margin:0 -2px 10px}.hero-image-label{font-size:7px;left:20px;top:17px}.key-art{transform:rotate(25deg) scale(.7);margin-top:-28px}.emergency-badge{left:15px;right:15px;bottom:34px;padding:13px 17px}.emergency-badge strong{font-size:11px}.emergency-badge div>span{font-size:9px}.emergency-badge>svg{display:block}.photo-hero .placeholder-caption{font-size:6px;bottom:12px}.hero-bottom{padding-block:18px}.hero-bottom>span{font-size:8px}.hero-bottom a{font-size:0;gap:0}.hero-bottom a svg{width:18px}.trust-grid{padding-block:23px;gap:20px 12px}.trust-grid>span{font-size:8px;gap:8px}.trust-grid svg{width:19px}.section{padding-block:58px}.eyebrow{font-size:8px;letter-spacing:1.5px;margin-bottom:14px}.section-heading{flex-direction:column;gap:16px;margin-bottom:25px}.section-heading p{font-size:12px;margin-top:12px}.services-grid{gap:15px;grid-template-columns:1fr}.service-visual{height:180px}.service-content{padding:22px}.service-title h3{font-size:28px}.service-content p{font-size:12px;min-height:0}.service-cta{margin-top:19px;font-size:9px}.service-art{width:90px;height:90px}.service-number{font-size:11px}.service-visual .placeholder-caption{font-size:7px}.automotive{min-height:440px}.automotive-art{inset:0;opacity:.3}.automotive-art:after{background:linear-gradient(90deg,#17191bf0,#17191b50)}.automotive-copy{padding:57px 0}.automotive-copy h2{font-size:44px}.automotive-copy p{max-width:300px;font-size:12px}.about-grid{grid-template-columns:1fr;gap:55px}.photo-about{height:340px}.about-copy>p{font-size:12px}.about-stats{gap:45px}.about-stats strong{font-size:36px}.about-stats span{font-size:10px}.about-stamp{padding:19px}.about-stamp span{font-size:9px}.review-summary{gap:10px;flex-wrap:wrap}.review-summary>span:last-child{font-size:10px}.reviews-heading h2{font-size:40px}.reviews-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:28px -20px 0;padding:0 20px 12px;gap:15px;scrollbar-width:thin;scrollbar-color:#666 #222}.review-card{flex:0 0 88%;scroll-snap-align:center;padding:25px}.review-card blockquote{font-size:13px;min-height:88px}.review-person strong{font-size:11px}.review-person div>span{font-size:9px}.avatar{width:35px;height:35px}.review-person>svg{display:block}.review-controls{display:flex;gap:10px;justify-content:center;margin-top:17px}.review-controls button{display:grid;place-items:center;width:40px;height:40px;border:1px solid #555;border-radius:50%;background:#222}.review-controls svg{width:18px}.review-link{margin-top:23px}.emergency-inner{flex-direction:column;align-items:stretch;gap:25px}.emergency-inner h2{font-size:39px}.emergency-inner h2 span{display:block}.emergency-inner p{font-size:12px}.emergency-actions{flex-direction:row;gap:10px}.emergency-actions .button{padding-inline:14px;font-size:10px}.emergency-actions .button>svg:last-child{display:none}.contact-grid{grid-template-columns:1fr}.contact-info{padding:28px}.contact-item p,.contact-item a{font-size:12px}.contact-item strong{font-size:12px}.map-wrap{min-height:330px}.footer-main{grid-template-columns:1fr 1fr;padding-block:40px;gap:35px 20px}.footer-main>div:first-child{grid-column:1/-1}.footer-links a,.footer-contact a,.footer-contact>span{font-size:10px}.footer-main>div>strong{font-size:8px}.footer-contact a{overflow-wrap:anywhere}.footer-bottom{flex-direction:column;gap:12px;line-height:1.7;font-size:9px}.mobile-cta{display:grid;grid-template-columns:1fr 1.4fr 1fr;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#18191bf5;backdrop-filter:blur(12px);border-top:1px solid #444;padding-bottom:env(safe-area-inset-bottom)}.mobile-cta a{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;min-height:68px;font-size:10px}.mobile-cta a svg{width:21px;height:21px}.mobile-cta a.mobile-whatsapp{color:#082b15;background:var(--whatsapp);font-weight:600}.mobile-cta a:not(.mobile-whatsapp) svg{color:var(--orange)}.inner-page .section:first-of-type{padding-top:25px}.filters{gap:7px}.filters button{font-size:10px;padding:11px 12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.service-card:hover,.button:hover{transform:none}}
 .photo-about .placeholder-caption{top:24px;bottom:auto}
+
+/* As fotos oficiais têm proporções próprias: retrato 2:3 e casal 3:2.
+   Não usar as alturas dos placeholders nem sobrepor os selos à fotografia. */
+.hero-visual:has(.photo-hero > img){
+  height:auto;
+  width:100%;
+  max-width:420px;
+  margin:28px 0 28px auto;
+}
+.photo-hero:has(> img){
+  height:auto;
+  aspect-ratio:2 / 3;
+  border-radius:8px;
+  box-shadow:0 0 55px #ff751f0c;
+}
+.photo-hero > img{object-fit:contain;object-position:center}
+.hero-visual:has(.photo-hero > img) .hero-image-label{display:none}
+.hero-visual:has(.photo-hero > img) .emergency-badge{
+  position:relative;
+  inset:auto;
+  margin-top:12px;
+  padding:16px;
+}
+.photo-about:has(> img){height:auto;aspect-ratio:3 / 2;border-radius:6px 6px 0 0}
+.photo-about > img{object-fit:contain;object-position:center}
+.about-photo:has(.photo-about > img) .about-stamp{
+  position:relative;
+  inset:auto;
+  border-radius:0 0 6px 6px;
+}
+@media(max-width:800px) and (min-width:601px){
+  .about-grid:has(.photo-about > img){grid-template-columns:1fr;gap:35px}
+  .about-photo:has(.photo-about > img){width:100%;max-width:600px;margin-inline:auto}
+}
+@media(max-width:600px){
+  .hero-visual:has(.photo-hero > img){max-width:360px;margin:0 auto 22px}
+  .hero-visual:has(.photo-hero > img) .emergency-badge{padding:14px}
+  .about-grid:has(.photo-about > img){gap:30px}
+}
