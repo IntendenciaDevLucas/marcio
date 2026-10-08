@@ -69,7 +69,7 @@ O arquivo HTML de verificação só pode ser incluído quando o Google fornecer 
 3. O workflow publica a cada push em `main`; também pode ser executado em **Actions → Publicar no GitHub Pages → Run workflow**.
 4. O endereço público aparece no ambiente `github-pages` ao concluir.
 
-O workflow configura o build para o domínio oficial com base `/`. Localmente o base padrão `./` permite testar em subpastas. O canonical usa o domínio oficial por padrão e pode ser alterado com `VITE_SITE_URL`. Configure o domínio no GitHub Pages e os registros DNS no provedor do domínio.
+O workflow usa o caminho informado pelo GitHub Pages: `/marcio/` no endereço do repositório e `/` quando o domínio próprio estiver configurado em Settings → Pages. Assim, JavaScript, CSS e fotos carregam no endereço efetivo da publicação. Localmente o base padrão `./` permite testar em subpastas. O canonical mantém o domínio oficial e pode ser alterado com `VITE_SITE_URL`. Configure o domínio no GitHub Pages e os registros DNS no provedor do domínio.
 
 ### Alternativa: gh-pages
 
