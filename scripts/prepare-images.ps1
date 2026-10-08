@@ -16,6 +16,11 @@ $selections = @{
   'gallery/fechadura-residencial' = 1
   'gallery/atendimento-caminhao' = 10
 }
+$digitalLock = Join-Path $projectRoot 'img/fechadura_eletronica.png'
+if (Test-Path $digitalLock) {
+  $selections['services/digitais'] = $sourceFiles.Count
+  $sourceFiles += Get-Item -LiteralPath $digitalLock
+}
 $encoder = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object MimeType -eq 'image/jpeg'
 $quality = New-Object System.Drawing.Imaging.EncoderParameters 1
 $quality.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality),([long]88)

@@ -4,7 +4,7 @@ export const services: Service[] = [
   {id:'residencial',title:'Residencial',description:'Mais tranquilidade para entrar e sair de casa.',icon:'house',image:'images/services/residencial.jpg',automotive:false,enabled:true},
   {id:'codificadas',title:'Chaves codificadas',description:'Tecnologia e atenção em cada chave.',icon:'chip',image:'images/services/codificadas.jpg',automotive:true,enabled:true},
   {id:'canivete',title:'Chave canivete',description:'Praticidade que acompanha você.',icon:'key',image:'images/services/canivete.jpg',automotive:true,enabled:true},
-  {id:'digitais',title:'Fechaduras digitais',description:'Converse com a gente sobre sua necessidade.',icon:'lock',image:'',automotive:false,enabled:true},
+  {id:'digitais',title:'Fechaduras digitais',description:'Converse com a gente sobre sua necessidade.',icon:'lock',image:'images/services/digitais.jpg',automotive:false,enabled:true},
   {id:'reparos',title:'Reparos automotivos',description:'Consulte a disponibilidade para o seu veículo.',icon:'repair',image:'images/services/reparos.jpg',automotive:true,enabled:true},
   // Em validação: habilitar somente após confirmação dos serviços pela empresa.
   {id:'paineis',title:'Reparo em painéis',description:'Consulte nossa equipe.',icon:'repair',image:'images/services/paineis.jpg',automotive:true,enabled:false},

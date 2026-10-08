@@ -44,7 +44,7 @@ As fotos de `img/` foram selecionadas e otimizadas para os cartões de serviços
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-images.ps1
 ```
 
-A galeria é configurada em `src/data/gallery.ts`. Logo, foto do Márcio e foto do casal já estão em `public/images/`. O serviço de fechaduras digitais usa uma ilustração, pois não há fotografia correspondente nos arquivos enviados. As fotos abaixo da primeira tela carregam sob demanda.
+A galeria é configurada em `src/data/gallery.ts`. Logo, foto do Márcio e foto do casal já estão em `public/images/`. O serviço de fechaduras digitais usa a fotografia enviada em `img/fechadura_eletronica.png`, otimizada para `public/images/services/digitais.jpg`. As fotos abaixo da primeira tela carregam sob demanda.
 
 ## Google e domínio oficial
 
@@ -99,7 +99,7 @@ Testa 375, 430, 768, 1024, 1440 e 1920px, overflow, filtros, hash routes, recarr
 
 ## Pendências para publicação definitiva
 
-- Foto de fechadura digital e confirmação do escopo dos serviços, especialmente reparo em painéis.
+- Confirmação do escopo dos serviços, especialmente reparo em painéis.
 - Link direto do perfil/avaliações Google. Atualmente o botão abre a busca pelo nome e endereço fornecidos; não foi inventado um place_id.
 - Publicação das alterações, configuração do domínio na hospedagem e envio do sitemap ao Google Search Console.
 - Dias de funcionamento e horário de abertura, caso se deseje exibir agenda completa. Hoje consta somente atendimento comercial até 17h30 e contato de urgência a qualquer hora.
