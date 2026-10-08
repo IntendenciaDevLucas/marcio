@@ -28,8 +28,8 @@ jobs:
         id: pages
       - run: npm run build
         env:
-          VITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
-          VITE_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          VITE_BASE_PATH: /
+          VITE_SITE_URL: https://chaveirochaves.com.br
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

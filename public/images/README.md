@@ -1,10 +1,11 @@
-# Imagens oficiais pendentes
+# Imagens oficiais
 
-Adicione os arquivos nos caminhos abaixo. O site os detecta automaticamente após recarregar.
+Os arquivos já estão presentes nos caminhos abaixo.
 
 - brand/logo.png: logo oficial transparente.
 - hero/marcio.png: Márcio de jaqueta preta segurando uma chave, composição vertical.
 - about/casal.png: casal responsável pela empresa.
-- services/automotivo.webp, residencial.webp, codificadas.webp, canivete.webp, digitais.webp, reparos.webp.
+- services/automotivo.jpg, residencial.jpg, codificadas.jpg, canivete.jpg, reparos.jpg.
+- gallery/*.jpg: oito registros reais, configurados em src/data/gallery.ts.
 
-Não foram geradas pessoas. Os placeholders são intencionais e identificados. Caminhos são sensíveis a maiúsculas no GitHub Pages. Prefira imagens otimizadas, até 1600px para o hero e 800px para os cards, com menos de 250KB quando possível. Para trocar a extensão das fotos, atualize src/config/company.ts ou src/data/services.ts. Adicionar imagem social oficial e metadados og:image/twitter:image quando disponível.
+As cópias JPEG de img/ são redimensionadas para no máximo 1200px com qualidade 88. Os originais são preservados. Execute scripts/prepare-images.ps1 no Windows para gerar novamente as fotos e os ícones da logo. Fechaduras digitais usam uma ilustração enquanto não houver foto específica. Caminhos são sensíveis a maiúsculas na hospedagem. Para trocar fotos, atualize src/config/company.ts, src/data/services.ts ou src/data/gallery.ts. A logo oficial é usada nos metadados de compartilhamento.

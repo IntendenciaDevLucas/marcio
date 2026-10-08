@@ -10,7 +10,7 @@ import './styles.css'
 import App from './App'
 import { company } from './config/company'
 
-const schema = { '@context': 'https://schema.org', '@type': 'Locksmith', name: company.name, telephone: company.phone, address: { '@type': 'PostalAddress', streetAddress: `${company.address.street}, ${company.address.neighborhood}`, addressLocality: company.city, addressRegion: company.state, postalCode: company.address.zipCode, addressCountry: 'BR' }, areaServed: company.serviceArea.filter(area=>area!=='Região') }
+const schema = { '@context': 'https://schema.org', '@type': 'Locksmith', name: company.name, url: 'https://chaveirochaves.com.br/', logo: 'https://chaveirochaves.com.br/images/brand/logo.png', image: 'https://chaveirochaves.com.br/images/hero/marcio.png', sameAs: ['https://www.instagram.com/chaveschaveiromtz/'], telephone: company.phone, address: { '@type': 'PostalAddress', streetAddress: `${company.address.street}, ${company.address.neighborhood}`, addressLocality: company.city, addressRegion: company.state, postalCode: company.address.zipCode, addressCountry: 'BR' }, areaServed: company.serviceArea.filter(area=>area!=='Região') }
 const script = document.createElement('script')
 script.type = 'application/ld+json'
 script.textContent = JSON.stringify(schema)

@@ -8,7 +8,7 @@ export const company = {
   serviceArea: ['Matozinhos', 'Prudente de Morais', 'Pedro Leopoldo', 'Capim Branco', 'Região'],
   // Inserir o link direto do perfil quando fornecido. Não inventar place_id.
   googleReviewsUrl: '',
-  images: { logo: 'images/brand/logo.png', hero: 'images/hero/marcio.png', about: 'images/about/casal.png', automotive: 'images/services/automotivo.webp' },
+  images: { logo: 'images/brand/logo.png', hero: 'images/hero/marcio.png', about: 'images/about/casal.png', automotive: 'images/gallery/chaves-jeep.jpg' },
 }
 const address = `${company.name}, ${company.address.street}, ${company.address.city}, ${company.state}`
 export const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`
