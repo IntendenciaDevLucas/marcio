@@ -29,7 +29,7 @@ src/
   data/reviews.ts       Três avaliações fornecidas
   data/social.ts        Redes oficiais
 public/
-  favicon.svg          Símbolo provisório de chave
+  favicon.png          Símbolo da logo oficial
   images/README.md     Instruções para as imagens reais
 tests/site.spec.ts     Fluxos, responsividade e contatos
 .github/workflows/deploy.yml
@@ -44,9 +44,26 @@ As fotos do Márcio e do casal já estão no projeto. O Hero preserva a imagem i
 - `public/images/brand/logo.png`
 - `public/images/hero/marcio.png`
 - `public/images/about/casal.png`
-- Fotografias em `public/images/services/`, conforme `services.ts`.
+
+A galeria da página inicial usa oito fotos de `img/`, configuradas em `src/data/gallery.ts`. A foto da fechadura digital também está na galeria do serviço Residencial. As cópias JPEG e os ícones podem ser gerados novamente, preservando os originais, com:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-images.ps1
+```
 
 As 17 imagens da pasta LUCAS foram convertidas em WebP, sem alterar os originais: aproximadamente 20 MB viraram 2,2 MB, incluindo miniaturas. O mapeamento dos arquivos de origem está em `scripts/import-service-media.mjs`; instruções em `public/images/services/README.md`. Os cards usam miniaturas e as galerias exibem as imagens inteiras. Artes ilustrativas e referências são identificadas nas legendas. O hero carrega prioritariamente; cards, miniaturas e mapa usam lazy loading. O mapa requer conexão externa; o botão de rota permanece disponível.
+
+## Google e domínio oficial
+
+O domínio oficial é `https://chaveirochaves.com.br`. O build inclui canonical, metadados sociais, dados estruturados da empresa, `robots.txt`, `sitemap.xml`, `CNAME` e ícones derivados da logo oficial. O sitemap lista somente a página inicial: as seções usam rotas com fragmentos (`#/servicos` etc.), que não são páginas independentes para indexação.
+
+Depois de publicar `dist/` na hospedagem:
+
+1. Confira `https://chaveirochaves.com.br/robots.txt` e `https://chaveirochaves.com.br/sitemap.xml`.
+2. Adicione o domínio ao Google Search Console e faça a verificação por DNS usando o registro TXT fornecido pelo Google.
+3. Envie `sitemap.xml` na seção Sitemaps e solicite a indexação da página inicial pela inspeção de URL.
+
+O arquivo HTML de verificação só pode ser incluído quando o Google fornecer o arquivo específico da sua conta. Sitemap e favicon tornam o site elegível para rastreamento e exibição da marca; a indexação e a exibição do ícone dependem do Google.
 
 ## Rotas
 
@@ -59,7 +76,7 @@ As 17 imagens da pasta LUCAS foram convertidas em WebP, sem alterar os originais
 3. O workflow publica a cada push em `main`; também pode ser executado em **Actions → Publicar no GitHub Pages → Run workflow**.
 4. O endereço público aparece no ambiente `github-pages` ao concluir.
 
-O workflow obtém o caminho e a URL reais de `actions/configure-pages`. Isso configura assets, canonical e `og:url` tanto em repositórios quanto em domínio próprio. Não há URL fictícia ou domínio antigo fixado como canonical. Localmente o base padrão `./` permite hospedagem em subpastas. Configure `.env.local` conforme `.env.example` para um build manual com URL final.
+O workflow usa o caminho informado pelo GitHub Pages: `/marcio/` no endereço do repositório e `/` quando o domínio próprio estiver configurado em Settings → Pages. Assim, JavaScript, CSS e fotos carregam no endereço efetivo da publicação. Localmente o base padrão `./` permite testar em subpastas. O canonical mantém o domínio oficial e pode ser alterado com `VITE_SITE_URL`. Configure o domínio no GitHub Pages e os registros DNS no provedor do domínio.
 
 ### Alternativa: gh-pages
 
@@ -90,8 +107,7 @@ Testa 375, 430, 768, 1024, 1440 e 1920px, overflow, filtros, hash routes, recarr
 ## Pendências para publicação definitiva
 
 - Link direto do perfil/avaliações Google. Atualmente o botão abre a busca pelo nome e endereço fornecidos; não foi inventado um place_id.
-- URL final do repositório ou domínio. Canonical é emitido quando `VITE_SITE_URL` está configurado (automático no workflow).
-- Imagem oficial para compartilhamento: Open Graph e Twitter Card textuais já existem; adicionar `og:image` e `twitter:image` com URL absoluta quando a arte for fornecida.
+- Publicação das alterações, configuração do domínio na hospedagem e envio do sitemap ao Google Search Console.
 - Dias de funcionamento e horário de abertura, caso se deseje exibir agenda completa. Hoje consta somente atendimento comercial até 17h30 e contato de urgência a qualquer hora.
 - Links de Facebook e YouTube, se utilizados.
 
