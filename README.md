@@ -108,7 +108,7 @@ Testa 375, 430, 768, 1024, 1440 e 1920px, overflow, filtros, hash routes, recarr
 
 - Link direto do perfil/avaliações Google. Atualmente o botão abre a busca pelo nome e endereço fornecidos; não foi inventado um place_id.
 - Publicação das alterações, configuração do domínio na hospedagem e envio do sitemap ao Google Search Console.
-- Dias de funcionamento e horário de abertura, caso se deseje exibir agenda completa. Hoje consta somente atendimento comercial até 17h30 e contato de urgência a qualquer hora.
+- Dias de funcionamento e horário de abertura, caso se deseje exibir agenda completa. A loja fica aberta até 17h30. Após esse horário, o atendimento depende de disponibilidade, a consultar pelo WhatsApp ou telefone; não há promessa de atendimento 24h.
 - Links de Facebook e YouTube, se utilizados.
 
 Nota 4,9, 200 avaliações e quase 10 anos são dados fornecidos pelo cliente, não sincronizados com o Google. Atualize-os no arquivo de configuração quando necessário. O protótipo não foi publicado automaticamente em uma conta externa.
