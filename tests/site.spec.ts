@@ -20,12 +20,12 @@ for(const width of [375,430,768,1024,1440,1920]){
 }
 test('Rotas, filtros e contatos funcionam no subcaminho',async({page})=>{
   await page.goto('/prototipo/#/servicos?categoria=automotivo')
-  await expect(page.locator('.service-card')).toHaveCount(4)
+  await expect(page.locator('.service-card')).toHaveCount(5)
   await page.getByRole('button',{name:'Residenciais',exact:true}).click()
-  await expect(page.locator('.service-card')).toHaveCount(2)
-  await expect(page.locator('.service-card').first()).toHaveAttribute('href',/wa.me\/5531986510530\?text=.*Residencial/)
+  await expect(page.locator('.service-card')).toHaveCount(1)
+  await expect(page.locator('.service-card__quote').first()).toHaveAttribute('href',/wa.me\/5531986510530\?text=.*Residencial/)
   await page.reload()
-  await expect(page.locator('.service-card')).toHaveCount(4)
+  await expect(page.locator('.service-card')).toHaveCount(5)
   for(const route of ['sobre','contato','avaliacoes']){
     await page.goto(`/prototipo/#/${route}`)
     await expect(page.locator('main h2').first()).toBeVisible()

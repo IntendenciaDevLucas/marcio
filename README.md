@@ -23,6 +23,7 @@ src/
   App.tsx              Componentes, seções e rotas
   main.tsx             Entrada, fontes e schema Locksmith
   styles.css           Design system e responsividade
+  components/          Cards, galerias, páginas de serviços e fundo do Hero
   config/company.ts    Dados, imagens, links de contato e mapa
   data/services.ts     Serviços, categorias e visibilidade
   data/reviews.ts       Três avaliações fornecidas
@@ -36,20 +37,20 @@ tests/site.spec.ts     Fluxos, responsividade e contatos
 
 ## Conteúdo e imagens
 
-Edite `src/config/company.ts` para alterar os dados. Todas as listagens de serviço vêm de `src/data/services.ts`; `enabled: false` oculta um serviço. O reparo em painéis está desativado até confirmação. As descrições são genéricas e não prometem procedimentos não confirmados. A listagem tem filtros e cada orçamento abre uma mensagem específica no WhatsApp.
+Edite `src/config/company.ts` para alterar os dados. Todas as listagens de serviço vêm de `src/data/services.ts`; `enabled: false` oculta um serviço. Os quatro textos enviados na pasta LUCAS em outubro de 2026 foram incorporados, incluindo os pequenos reparos em painéis agora confirmados. Cada categoria tem descrição, lista de serviços, galeria com ampliação e orçamento específico pelo WhatsApp.
 
-As imagens reais não acompanharam o briefing. Há placeholders identificados; a chave do hero é uma ilustração em CSS, não uma foto do proprietário. O logo tipográfico também é provisório. Adicione:
+As fotos do Márcio e do casal já estão no projeto. O Hero preserva a imagem inteira, incluindo o logo, com um fundo ampliado e desfocado da mesma foto. Para trocar os arquivos institucionais, mantenha os caminhos:
 
 - `public/images/brand/logo.png`
 - `public/images/hero/marcio.png`
 - `public/images/about/casal.png`
 - Fotografias em `public/images/services/`, conforme `services.ts`.
 
-Os arquivos passam a ser usados automaticamente ao recarregar. Use imagens otimizadas; WebP é recomendado e pode ser configurado nos dados. O hero carrega prioritariamente; as demais imagens e o mapa usam lazy loading. Não foram inventados rostos, avaliações, datas ou horários de abertura. O mapa requer conexão externa; o botão de rota permanece disponível.
+As 17 imagens da pasta LUCAS foram convertidas em WebP, sem alterar os originais: aproximadamente 20 MB viraram 2,2 MB, incluindo miniaturas. O mapeamento dos arquivos de origem está em `scripts/import-service-media.mjs`; instruções em `public/images/services/README.md`. Os cards usam miniaturas e as galerias exibem as imagens inteiras. Artes ilustrativas e referências são identificadas nas legendas. O hero carrega prioritariamente; cards, miniaturas e mapa usam lazy loading. O mapa requer conexão externa; o botão de rota permanece disponível.
 
 ## Rotas
 
-`/`, `#/servicos`, `#/sobre`, `#/avaliacoes`, `#/contato`. HashRouter mantém refresh e links diretos compatíveis com GitHub Pages. `#/servicos?categoria=automotivo` abre o filtro automotivo. URLs desconhecidas mostram uma página de retorno ao início.
+`/`, `#/servicos`, `#/servicos/:serviceId`, `#/sobre`, `#/avaliacoes`, `#/contato`. Os serviços são `canivete`, `presenca`, `residencial`, `reparos`, `centrais` e `paineis`. Fechaduras digitais, tetra e controles de portão estão na categoria Residencial. HashRouter mantém refresh e links diretos compatíveis com GitHub Pages. `#/servicos?categoria=automotivo` e `#/servicos?categoria=residencial` abrem o filtro correspondente. URLs desconhecidas mostram uma página de retorno.
 
 ## Publicar no GitHub Pages (recomendado)
 
@@ -84,12 +85,10 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Testa 375, 430, 768, 1024, 1440 e 1920px, overflow, filtros, hash routes, recarregamento em subpasta, links de telefone/WhatsApp e menu por teclado. Capturas ficam em `test-results/`. O site respeita `prefers-reduced-motion`, possui foco visível, link para pular conteúdo e safe-area na barra mobile.
+Testa 375, 430, 768, 1024, 1440 e 1920px, overflow, filtros, hash routes, recarregamento em subpasta, links de telefone/WhatsApp, galerias com teclado e carregamento das fotos. Capturas ficam em `test-results/`. O site respeita `prefers-reduced-motion`, possui foco visível, link para pular conteúdo e safe-area na barra mobile.
 
 ## Pendências para publicação definitiva
 
-- Logo, layout de referência, foto do Márcio e foto do casal.
-- Fotografias e confirmação do escopo dos serviços, especialmente reparo em painéis.
 - Link direto do perfil/avaliações Google. Atualmente o botão abre a busca pelo nome e endereço fornecidos; não foi inventado um place_id.
 - URL final do repositório ou domínio. Canonical é emitido quando `VITE_SITE_URL` está configurado (automático no workflow).
 - Imagem oficial para compartilhamento: Open Graph e Twitter Card textuais já existem; adicionar `og:image` e `twitter:image` com URL absoluta quando a arte for fornecida.

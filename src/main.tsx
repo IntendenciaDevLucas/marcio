@@ -7,6 +7,8 @@ import '@fontsource/inter/latin-400.css'
 import '@fontsource/inter/latin-500.css'
 import '@fontsource/inter/latin-600.css'
 import './styles.css'
+import './components/ServiceContent.css'
+import './components/HeroBackdrop.css'
 import App from './App'
 import { company } from './config/company'
 
